@@ -196,6 +196,7 @@ export default defineComponent({
       if (this.isGeneratingShippingLabel) {
         return;
       }
+      
       await this.store.dispatch('transferorder/fetchTransferShipmentDetail', { shipmentId: this.$route.params.shipmentId })
       this.isGeneratingShippingLabel = true;
       let shippingLabelPdfUrls = this.currentShipment?.labelImageUrl ? [this.currentShipment?.labelImageUrl] : [];
